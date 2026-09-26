@@ -516,12 +516,12 @@ final class Input
 
     private function sizeOf(mixed $value): float
     {
-        if (is_numeric($value)) {
-            return (float) $value;
-        }
-
         if (is_string($value)) {
             return (float) (function_exists('mb_strlen') ? mb_strlen($value) : strlen($value));
+        }
+
+        if (is_numeric($value)) {
+            return (float) $value;
         }
 
         if (is_array($value)) {
